@@ -11,7 +11,8 @@ const data = [
         review: 6,
         location: "USA",
         title : "Life lessons with Katie Zaferes",
-        price:"136"
+        price:"136",
+        openSpots: 0
     },
 
     {
@@ -21,7 +22,8 @@ const data = [
         review: 30,
         location: "Sydney",
         title : "Learn Wedding Photography",
-        price:"125"
+        price:"125",
+        openSpots: 3
     },
 
     {
@@ -29,24 +31,27 @@ const data = [
         image: yoga,
         rating: "5.0",
         review: 20,
-        location: "Canada",
+        location: "Online",
         title : "Yoga Class",
-        price:"50"
+        price:"50",
+        openSpots: 10
+
     },
 
     {
         id: 4,
-        image: yoga,
+        image: wedding,
         rating: "5.0",
         review: 20,
         location: "Canada",
         title : "Yoga Class",
-        price:"50"
+        price:"50",
+        openSpots: 0
     },
 
     {
         id: 5,
-        image: yoga,
+        image: swimmer,
         rating: "5.0",
         review: 20,
         location: "Canada",
@@ -63,6 +68,7 @@ const data = [
         location: "Canada",
         title : "Yoga Class",
         price:"50"
+        
     },
 
     {
@@ -77,7 +83,7 @@ const data = [
     
     {
         id: 8,
-        image: yoga,
+        image: swimmer,
         rating: "5.0",
         review: 20,
         location: "Canada",

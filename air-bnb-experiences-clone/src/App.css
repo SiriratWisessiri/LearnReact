@@ -37,9 +37,10 @@ nav img {
 .card {
   /* width: 15rem; */
   font-size: 14px;
-  padding: 1rem 2.5rem;
+  padding: 1rem;
   min-width: 10rem;
   flex-direction: column;
+  position: relative;
 }
 
 .card img {
@@ -52,4 +53,14 @@ nav img {
 }
 .card-stats img {
   width: 14px;
+}
+
+.card-badge {
+  position: absolute;
+  top: 22px;
+  left: 25px;
+  background-color: white;
+  padding: 2px;
+  border-radius: 2px;
+  font-weight: bold;
 }
