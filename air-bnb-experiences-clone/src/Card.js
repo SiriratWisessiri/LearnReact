@@ -1,19 +1,27 @@
-import swimmer from './image/swimmer.png'
+
 import star from './image/star.png';
+import data from './data';
 
 function Card() {
-    return(
-        <div className="card">
-            <img src={swimmer} />
-            <div className='card-stats'>
-                <img src={star} />
-                <span>5.0</span>
-                <span>(6) · </span>
-                <span>USA</span>
+    const cardElement = data.map(item => {
+        return (
+            <div className="card">
+                <img src= {item.image}/>
+                <div className='card-stats'>
+                    <img src={star} />
+                    <span>{item.rating}</span>
+                    <span>({item.review}) · </span>
+                    <span>{item.location}</span>
+                </div>
+                <p>{item.title}</p>
+                <p><b>From ${item.price}</b> / person</p>
             </div>
-            <p>Life lessons with Katie Zaferes</p>
-            <p><b>From $136</b> / person</p>
+        )    
+    })
 
+    return(
+        <div className="card-container">         
+         {cardElement}
         </div>
     )
 }

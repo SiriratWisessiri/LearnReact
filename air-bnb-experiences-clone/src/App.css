@@ -10,6 +10,7 @@ nav {
 }
 nav img {
   width: 10rem;
+
 }
 
 /* Hero */
@@ -27,9 +28,18 @@ nav img {
 }
 
 /* Card */
+.card-container {
+  display: flex;
+  flex: 1;
+  overflow: auto;
+  
+}
 .card {
-  width: 15rem;
+  /* width: 15rem; */
   font-size: 14px;
+  padding: 1rem 2.5rem;
+  min-width: 10rem;
+  flex-direction: column;
 }
 
 .card img {
