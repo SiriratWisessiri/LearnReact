@@ -23,7 +23,7 @@ body {
 .card {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   margin: 2rem;
   
 }
@@ -34,6 +34,7 @@ body {
 }
 .card img {
   width: 10rem;
+  max-height: 12rem;
   border-radius: 15px;
 }
 

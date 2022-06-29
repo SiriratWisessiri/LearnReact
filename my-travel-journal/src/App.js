@@ -1,7 +1,6 @@
 import './App.css';
 import Card from './Card';
 import Nav from './nav';
-import fuji from './image/fuji.jpeg';
 import data from './data';
 
 function App() {
