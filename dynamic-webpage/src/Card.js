@@ -8,7 +8,7 @@ function CardBody() {
   }
 
   function handleMouseOver() {
-    alert("Mouse is over me")
+    console.log("Mouse is over me")
   }
 
   return (
