@@ -1,11 +1,12 @@
 // Adding ne thing on Click
 // Learn state and hook
-import React from 'react';
+
+import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 
 function AddItem() {
-    const [things, setThings] = React.useState(["Thing1", "Thing2"])
+    const [things, setThings] = useState(["Thing1", "Thing2"])
     const newThing = `Thing ${things.length + 1}`
     function handleClick (){
         // Adding thing icrement by 1
