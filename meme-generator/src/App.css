@@ -22,3 +22,8 @@
 .button {
   background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
 }
+
+.meme-image {
+  width: 100%;
+  margin-top: 1rem;
+}
