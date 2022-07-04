@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import CardBody from './Card';
 import AddItem from './AddItem';
 import Counter from './counter';
+import Ternary from './Ternary'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Counter />
         <CardBody />
         <AddItem />
+        <Ternary />
     </div>
   );
 }
