@@ -7,7 +7,7 @@ import Button from 'react-bootstrap/Button';
 
 function AddItem() {
     const [things, setThings] = useState(["Thing1", "Thing2"])
-    const newThing = `Thing ${things.length + 1}`
+    // const newThing = `Thing ${things.length + 1}`
     function handleClick (){
         // Adding thing icrement by 1
         const newThing = `Thing ${things.length + 1}`
@@ -16,7 +16,7 @@ function AddItem() {
         // thingsArray.push(newThing)
         // console.log(thingsArray)
     }
-    const thingsElement = things.map(thing => <p>{thing}</p>)
+    const thingsElement = things.map(thing => <p key={thing}>{thing}</p>)
     
 
   return (
