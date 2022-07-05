@@ -47,18 +47,62 @@ import Box from './Box';
      *    the backgroundColor of the box. If it's `on`, set the
      *    backgroundColor to "#222222". If off, set it to "none"
      */
-    
-     function App() {
-      const [box, setBox] = useState(BoxesData)
+    //  function App() {
+    //   const [box, setBox] = useState(BoxesData)
       
-      const boxElements = box.map(anyname => ( // this parameter name can name anything.Just need to make sure that you use the same nam when passing to the value below.
-        <Box on={anyname.on} key={anyname.id}/>  //Box has a props of "on" that will pass to Box(props) in Box.js
-      )) 
-      return (
-        <div className="">
-            {boxElements}     
-        </div>
-      );
-    }
+    //   const boxElements = box.map(anyname => ( // this parameter name can name anything.Just need to make sure that you use the same nam when passing to the value below.
+    //     <Box 
+    //       on={anyname.on} key={anyname.id}/>  //Box has a props of "on" that will pass to Box(props) in Box.js
+    //   )) 
+    //   return (
+    //     <div className="">
+    //         {boxElements}     
+    //     </div>
+    //   );
+    // }
     
-    export default App;
+    // export default App;
+/////////////////////////////////////////////
+//Below is challenge part 5 that will target each id of the box to toggle
+// In previous excercise we put toggle function here in Box component that target every box, 
+//now we will move the toggle function to the parent(App.js) that will target id of the box the got clicked then change the state of that box
+function App() {
+  const [box, setBox] = useState(BoxesData)
+
+  function toggle(id) {
+    setBox(prevState => {
+      return prevState.map((myBox) => {
+          return myBox.id === id ? {...myBox, on : !myBox.on} : myBox
+      })
+    })
+  }
+  // We look into previous(state) array and will map over that previous(state) array. 
+  // .map return a new array without modifying the original array that will have the same length as the original array.
+  // What ever we return from the callback function of .map is what we get place in the same index in the new array 
+  // as what was in the original array. Everytime we loop over an item in this array is we're checking if it's "id" matches 
+  // with the id that we are passing into our toggle function. If the id match, mean that it's the box that was clicked.
+  //  If that's true then I want to replace to old object with the brand new object {...myBox, on: !myBox.on} 
+  //  It is crutial that you are not upsating state directly. This object will pull all the value of myBox, 
+  //  then it over ride the "on" value with its opposite. How ever if this is not the box that was clicked, 
+  //  then just give(stay) the old myBox
+  
+  const boxElements = box.map(myBox => ( // this parameter name can name anything.Just need to make sure that you use the same nam when passing to the value below.
+    <Box  //Box has a props of "on" that will pass to Box(props) in Box.js
+      on={myBox.on} 
+      key={myBox.id}
+      //id={myBox.id} 
+      //Instead of passing the id to the Box(like the above line), we can also pass the id stright to the toggle.
+      // having a call back function in side the toggle here similar to what we did in the Box component in Box.js
+      //It created something call "closure" where each instance of the box will have it own toggle will it will remember it own id
+      // in Box component can remove teh function and only have toggle function
+      toggle={() => toggle(myBox.id)}
+      /> 
+  )) 
+  return (
+    <div className="">
+        {boxElements}     
+    </div>
+  );
+}
+
+export default App;
