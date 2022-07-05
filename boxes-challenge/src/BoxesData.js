@@ -1,4 +1,4 @@
-const Boxes = [
+const BoxesData = [
     {
         id: 1,
         on: true
@@ -25,4 +25,4 @@ const Boxes = [
     },   
 ]
 
-export default Boxes
+export default BoxesData
