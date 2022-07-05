@@ -20,7 +20,7 @@ import Box from './Box';
 //   const styles = {
 //     backgroundColor: props.darkMode ? "#222222" : "#cccccc"
 // }
-//   const boxElements = box.map(box => (  // this "box" is from the box state. "box" = initial use state of "Boxes" array. And when using .map or working with array need to have uniqe key to avoid error
+//   const boxElements = box.map(box => (  // this parameter "box" name can name anything.Just need to make sure that you use the same nam when passing to the value below. When using .map or working with array need to have uniqe key to avoid error
 //     <div className='box' style={styles} key={box.id}> 
 //     {/* We can use JS style to style our elements "style={styles}" instead of CSS. The benefit of this is so you can target the JS condition to change the style*/}
 //     {/* This will render all the boxes as it's .map through each box in Boxes array*/}
@@ -51,8 +51,8 @@ import Box from './Box';
      function App() {
       const [box, setBox] = useState(BoxesData)
       
-      const boxElements = box.map(box => (
-        <Box on={box.on} key={box.id}/> 
+      const boxElements = box.map(anyname => ( // this parameter name can name anything.Just need to make sure that you use the same nam when passing to the value below.
+        <Box on={anyname.on} key={anyname.id}/>  //Box has a props of "on" that will pass to Box(props) in Box.js
       )) 
       return (
         <div className="">
