@@ -12,14 +12,14 @@ import {useState} from 'react'
 
 
 function Box (props) {
-    const [onOff, setOnOff] = useState(props.on)
+    const [onOff, setOnOff] = useState(props.on) //This initial state receive props.on from BoxesData(BpxesData.js) 
     
     const boxStyle = {
         backgroundColor: onOff ? "#222222" : "transparent"
     }
 
     function toggle() {
-        setOnOff(prevState => !prevState)
+        setOnOff(prevState => !prevState) //toggle to set opposit from previous state. This  name in parameter can be any name, using prevState or having word prev is for easy understanding
     }
 
     return (
