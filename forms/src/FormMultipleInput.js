@@ -7,7 +7,9 @@ function MultipleInputForm () {
         { 
             firstName: "",
             lastName: "",
-            email:""
+            email:"",
+            comments:"",
+            checkBox: false //checkbox only take boolean value
         }
     )
     console.log(formData)
@@ -17,11 +19,12 @@ function MultipleInputForm () {
         //This time we need to know what the previous version of the state as we have a lot of properties that we need to maintain instead of over write
         //As when you input data to the new field, you want to keep the data from the previous field intact
         setFormDataName(prevState => { 
+            const{name, value, type, checked} = event.target
             return {
                 ...prevState, 
                 //The goal is to return the new object and keep all the old object intact
                 // this spread syntax make a copy of previous data (previous state)
-                [event.target.name] : event.target.value
+                [name]: type === "checkbox" ? checked : value
                 //The above line will over write or update the specific property(name) with new value
                 // in ES6 you nned to put event.tartget. in square bracket to fix syntax issue
             }
@@ -55,6 +58,25 @@ function MultipleInputForm () {
                 name="email"
                 value={formData.email}
              />
+             {/* Text area */}
+             <textarea  //no need "type" as the text area is already type of text
+                placeholder="Add your comments here"
+                onChange={handleChange}
+                name="comments"
+                value={formData.comments}
+             />
+             {/* Check Box 
+             hold boolean value, not string or number etc.*/}
+             <input
+                type="checkbox"
+                id='checkBox'
+                onChange={handleChange}//You need to modify the "handleChange" function to take "checked" as well, not only "value"
+                name="checkBox"
+                checked={formData.checkBox} //checking the boolean value from the state
+             />
+             {/* label for checkbox useing "htmlfor" instead of "for" */}
+            <label htmlFor="checkBox">Check Box?</label> 
+            <br />
         </form>
     )
 }
