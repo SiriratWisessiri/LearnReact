@@ -9,7 +9,9 @@ function MultipleInputForm () {
             lastName: "",
             email:"",
             comments:"",
-            checkBox: false //checkbox only take boolean value
+            checkBox: false, //checkbox only take boolean value
+            radioButton: "",
+            selectBox: ""
         }
     )
     console.log(formData)
@@ -31,8 +33,14 @@ function MultipleInputForm () {
         })
     }
 
+    function handleSubmit(event) {
+        event.preventDefault()  //To prevent the page from refresh
+        //submitToApi(formData) //example function
+        console.log(formData)
+    }
+
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <h4>Multiple input form</h4>
             <input
                 type="text"
@@ -67,16 +75,77 @@ function MultipleInputForm () {
              />
              {/* Check Box 
              hold boolean value, not string or number etc.*/}
-             <input
-                type="checkbox"
-                id='checkBox'
-                onChange={handleChange}//You need to modify the "handleChange" function to take "checked" as well, not only "value"
-                name="checkBox"
-                checked={formData.checkBox} //checking the boolean value from the state
-             />
-             {/* label for checkbox useing "htmlfor" instead of "for" */}
-            <label htmlFor="checkBox">Check Box?</label> 
+             <div className='checkBox'>
+                <input
+                    type="checkbox"
+                    id='checkBox'
+                    onChange={handleChange}//You need to modify the "handleChange" function to take "checked" as well, not only "value"
+                    name="checkBox"
+                    checked={formData.checkBox} //checking the boolean value from the state
+                />
+                {/* label for checkbox useing "htmlfor" instead of "for" */}
+                <label htmlFor="checkBox">Check Box?</label> 
+            </div>
             <br />
+        {/* radio button */}
+            <fieldset className='radio'>
+                <legend>Radio</legend>          
+                <input 
+                    type="radio"
+                    id="radio1"
+                    name="radioButton"
+                    value="radio1"
+                    checked={formData.radioButton === "radio1"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="radio1">Radio button 1</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="radio2"
+                    name="radioButton"
+                    value="radio2"
+                    checked={formData.radioButton === "radio2"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="radio2">Radio Button 2</label>
+                <br />
+                
+                <input 
+                    type="radio"
+                    id="radio3"
+                    name="radioButton"
+                    value="radio3"
+                    checked={formData.radioButton === "radio3"}
+                    onChange={handleChange}
+                />
+                <label htmlFor="radio3">Radio Button 3</label>
+                <br />
+            </fieldset>
+            <br />
+            {/* Select Box */}
+            <label htmlFor="favColor">What is your favorite color?</label>
+            <br />
+            <select 
+                id="selectBox"
+                value={formData.selectBox}
+                onChange={handleChange}
+                name="selectBox"
+            >
+                <option value="">Please Choose</option>
+                <option value="red">Red</option>
+                <option value="orange">Orange</option>
+                <option value="yellow">Yellow</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="indigo">Indigo</option>
+                <option value="violet">Violet</option>
+            </select>
+            <br />
+            <br />
+            {/* in HTML5 "button inside the form has a defualt type of "submit" */}
+            <button>Submit</button>
         </form>
     )
 }
