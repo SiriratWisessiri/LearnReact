@@ -37,18 +37,23 @@ function MultipleInputForm () {
                 onChange={handleChange}
                 name="firstName" //This property name need to match the name given in the object
                 //So the event.target know which item to target
+                value={formData.firstName} //This is "Controlled componet. "name of state.name of specific input"
+                // The value of the input will be contrlloed by React. 
+                //Every change made run the "handleChange" function that will update the state
             />
             <input
                 type="text"
                 placeholder="Last Name"
                 onChange={handleChange}
-                name="lasttName"
+                name="lastName"
+                value={formData.lastName}
              />
             <input
                 type="email"
                 placeholder="Email"
                 onChange={handleChange}
                 name="email"
+                value={formData.email}
              />
         </form>
     )
