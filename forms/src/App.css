@@ -24,3 +24,11 @@ textarea {
   border-radius: 5px;
   display: block;
 }
+
+.checkBox, .radio{
+  display: flex;
+}
+
+.checkBox label, .radio label {
+  padding: 6px;
+}
