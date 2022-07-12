@@ -39,7 +39,22 @@ function Meme() {
             randomImage: "https://i.imgflip.com/30b1gx.jpg"
         }
     )
-    
+  /**
+     * Challenge: 
+     * 1. Set up the text inputs to save to
+     *    the `topText` and `bottomText` state variables.
+     * 2. Replace the hard-coded text on the image with
+     *    the text being saved to state.
+     */
+    function handleChange(event){
+        const {name, value} = event.target
+        setMeme(prevMeme=> (
+            {
+                ...prevMeme,
+                [name] : value
+            }))
+    }
+
     const [allMemeImages, setAllMemeImages] = useState(memesData)
 
     function getMemeImage() {
@@ -60,14 +75,26 @@ function Meme() {
             <Col>  
                 <Form>
                     <Form.Group className="mb-3">   
-                        <Form.Control type="text" placeholder="Enter youe text" />
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Enter youe text" 
+                            name='topText'
+                            value={meme.topText}
+                            onChange={handleChange}
+                        />
                     </Form.Group>
                 </Form>
             </Col>
             <Col>
                 <Form>
                     <Form.Group className="mb-3">   
-                        <Form.Control type="text" placeholder="Enter youe text" />
+                        <Form.Control 
+                            type="text" 
+                            placeholder="Enter youe text" 
+                            name='bottomText'
+                            value={meme.bottomText}
+                            onChange={handleChange}
+                            />
                     </Form.Group>
                 </Form>
             </Col>
@@ -78,12 +105,14 @@ function Meme() {
             Get a new meme image
             </Button>
         </div>
-        <div>
+        <div className='meme'>
+            <h2 className=" meme-text top">{meme.topText}</h2>
             <img src= {meme.randomImage} className="meme-image"/>
+            <h2 className="meme-text bottom">{meme.bottomText}</h2>
         </div>
-
     </Container>
   );
 }
 
 export default Meme;
+
