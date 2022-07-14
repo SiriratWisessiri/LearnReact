@@ -29,7 +29,7 @@ function MemeAPI() {
         {
             topText: "", 
             bottomText: "", 
-            randomImage: "https://i.imgflip.com/30b1gx.jpg"
+            randomImage: "https://i.imgflip.com/261o3j.jpg"
         }
     )
 
