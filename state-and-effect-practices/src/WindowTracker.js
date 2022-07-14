@@ -11,12 +11,30 @@ function WindowTracker(){
     const [show, setShow] = useState(true)
     const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
-    useEffect(function(){
-        window.addEventListener("resize", function(){
-            setWindowWidth(prevWindowWidth => window.innerWidth )
-        },[window.innerWidth])
-    })
+    // useEffect(function(){
+    //     window.addEventListener("resize", function(){
+    //         setWindowWidth(window.innerWidth)
+    //     },[])
+    //     console.log(windowWidth)
+    // })
+    
+    //Learn useEffect Cleanup function
+    //this will stop the memory leak in the background once you toggle the Window 
 
+//****I really don't understand this yet!!!!! */
+        useEffect(function(){
+            function watchWidth(){
+                console.log("Setting up...")
+                setWindowWidth(window.innerWidth)
+            }
+            window.addEventListener("resize", watchWidth)
+
+            return function() {
+                console.log("Cleaning up...")
+                window.removeEventListener("resize", watchWidth)
+            }          
+        },[])
+         
     function toggle() {
         setShow(prevState => !prevState)
     }
